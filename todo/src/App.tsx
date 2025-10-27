@@ -58,7 +58,8 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-6">
+    <div className="min-h-screen flex items-center justify-center p-6 bg-gradient-to-br from-indigo-50 via-white to-green-50">
+
       <div className="w-full max-w-2xl">
         <header className="mb-6">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 drop-shadow-sm">
