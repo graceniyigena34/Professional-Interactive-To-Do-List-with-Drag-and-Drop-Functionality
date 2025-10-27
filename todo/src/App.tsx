@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { DragDropContext, Droppable, Draggable, DropResult } from "@hello-pangea/dnd";
+import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
+import type { DropResult } from "@hello-pangea/dnd";
 import TaskItem from "./components/TaskItem";
-import { Task } from "./types"; 
 
-
-
+// Inline task type
+interface TaskType {
+  id: string;
+  text: string;
+}
 
 const STORAGE_KEY = "todo_tasks_v1";
 
-function reorder(list: Task[], startIndex: number, endIndex: number): Task[] {
+function reorder(list: TaskType[], startIndex: number, endIndex: number): TaskType[] {
   const result = Array.from(list);
   const [removed] = result.splice(startIndex, 1);
   result.splice(endIndex, 0, removed);
@@ -16,10 +19,9 @@ function reorder(list: Task[], startIndex: number, endIndex: number): Task[] {
 }
 
 export default function App() {
-  const [tasks, setTasks] = useState<Task[]>([]);
+  const [tasks, setTasks] = useState<TaskType[]>([]);
   const [input, setInput] = useState("");
 
-  // load from localStorage
   useEffect(() => {
     try {
       const raw = localStorage.getItem(STORAGE_KEY);
@@ -29,14 +31,13 @@ export default function App() {
     }
   }, []);
 
-  // persist tasks
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
   }, [tasks]);
 
   const handleAddTask = () => {
-    if (!input.trim()) return; // prevent blank
-    const newTask: Task = { id: String(Date.now()), text: input.trim() };
+    if (!input.trim()) return;
+    const newTask: TaskType = { id: String(Date.now()), text: input.trim() };
     setTasks((s) => [...s, newTask]);
     setInput("");
   };
@@ -47,7 +48,7 @@ export default function App() {
 
   const onDragEnd = (result: DropResult) => {
     if (!result.destination) return;
-    if (result.source.index === result.destination.index) return; 
+    if (result.source.index === result.destination.index) return;
     const reordered = reorder(tasks, result.source.index, result.destination.index);
     setTasks(reordered);
   };
@@ -88,11 +89,7 @@ export default function App() {
           <DragDropContext onDragEnd={onDragEnd}>
             <Droppable droppableId="task-list">
               {(provided) => (
-                <ul
-                  {...provided.droppableProps}
-                  ref={provided.innerRef}
-                  className="space-y-3"
-                >
+                <ul {...provided.droppableProps} ref={provided.innerRef} className="space-y-3">
                   {tasks.length === 0 && (
                     <li className="text-gray-500 italic p-4">No tasks yet — add one above.</li>
                   )}
@@ -104,7 +101,6 @@ export default function App() {
                           ref={provided.innerRef}
                           {...provided.draggableProps}
                           {...provided.dragHandleProps}
-                          className=""
                         >
                           <TaskItem
                             text={task.text}
@@ -123,7 +119,7 @@ export default function App() {
           </DragDropContext>
         </div>
 
-        {/* footer / small controls */}
+        {/* footer */}
         <footer className="mt-4 text-sm text-gray-500 flex justify-between items-center">
           <span>{tasks.length} task{tasks.length !== 1 ? "s" : ""}</span>
           <div>
@@ -140,4 +136,3 @@ export default function App() {
     </div>
   );
 }
-
