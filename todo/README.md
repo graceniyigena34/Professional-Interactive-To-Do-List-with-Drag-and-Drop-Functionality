@@ -1,94 +1,78 @@
-# React + TypeScript + Vite
+## To-Do List App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern To-Do List application built with React, TypeScript, and Tailwind CSS. This app allows users to add, delete, and reorder tasks using drag-and-drop. Tasks are stored in localStorage, so your list persists across browser sessions.
 
-Currently, two official plugins are available:
+##  Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Add tasks: Quickly add new tasks using the input field or by pressing Enter.
 
-## React Compiler
+Delete tasks: Remove individual tasks with a single click.
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+Clear all tasks: Remove all tasks at once with a dedicated button.
 
-Note: This will impact Vite dev & build performances.
+Drag-and-drop reordering: Rearrange tasks easily by dragging them.
 
-## Expanding the ESLint configuration
+Persistent storage: Tasks are saved in localStorage and restored on page reload.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Responsive design: Looks great on mobile and desktop.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Modern UI: Built with Tailwind CSS and supports gradients, shadows, and interactive elements.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Tech Stack
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+React – Frontend library for building interactive UIs.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+TypeScript – Type safety for improved development experience.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Tailwind CSS – Utility-first CSS framework for modern design.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+@hello-pangea/dnd – Drag-and-drop functionality for task reordering.
+
+Installation
+
+Clone the repository:
+
+git clone https://github.com/your-username/todo-list.git
+cd todo-list
 
 
-# Professional Interactive To-Do List with Drag-and-Drop Functionality
+Install dependencies: npm install
 
-## Project Overview
+Start the development server:  npm run dev
 
-This is a fully interactive **To-Do List web application** built using **React**, **TypeScript**, and **Tailwind CSS**. Users can add, delete, and reorder tasks dynamically with **drag-and-drop functionality**. The project demonstrates React state management, DOM manipulation, and modern UI/UX best practices.
+Open the app in your browser at http://localhost:5173.
 
----
+## Usage
 
-## Features
+Add a task by typing in the input box and pressing Enter or clicking Add.
 
-- **Add Tasks**: Users can add new tasks via an input field. Blank tasks are not allowed.
-- **Display Tasks**: Tasks are displayed in a vertical list with clear separation.
-- **Delete Tasks**: Remove any task using a delete button.
-- **Reorder Tasks (Drag & Drop)**: Tasks can be reordered using drag-and-drop without duplicates or empty slots.
-- **Persist Tasks**: Tasks are saved in `localStorage` and persist across page reloads.
-- **Responsive UI**: The interface is clean, modern, and mobile-friendly.
-- **Smooth Animations**: Hover effects and drag animations for better user experience.
+Delete a task by clicking the delete button on each task.
+
+Reorder tasks by dragging them to the desired position.
+
+Clear all tasks by clicking the Clear All button.
+
+Folder Structure
+src/
+  components/
+    - TaskItem.tsx       # Individual task component
+  App.tsx                # Main app component
+  index.tsx              # Entry point
+
+Customization
+
+Background colors: Adjust the gradient in App.tsx to match your style.
+
+Dark mode: Add Tailwind dark: classes for a dark theme.
+
+Task persistence: Change STORAGE_KEY to use a different key in localStorage.
+
+Contributing
+
+Contributions are welcome! Feel free to:
+
+Add new features
+
+Improve UI/UX
+
+Fix bugs
