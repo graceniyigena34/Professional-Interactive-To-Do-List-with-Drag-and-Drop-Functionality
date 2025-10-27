@@ -123,13 +123,32 @@ export default function App() {
         <footer className="mt-4 text-sm text-gray-500 flex justify-between items-center">
           <span>{tasks.length} task{tasks.length !== 1 ? "s" : ""}</span>
           <div>
-            <button
-              onClick={() => setTasks([])}
-              className="text-red-500 hover:underline disabled:text-gray-400"
-              disabled={tasks.length === 0}
-            >
-              Clear all
-            </button>
+   <button
+  onClick={() => setTasks([])}
+  disabled={tasks.length === 0}
+  className={`
+    px-5 py-2.5
+    rounded-lg
+    font-semibold
+    text-white
+    bg-green-600
+    hover:bg-green-700
+    focus:outline-none
+    focus:ring-2
+    focus:ring-green-400
+    disabled:bg-green-300
+    disabled:text-gray-100
+    disabled:cursor-not-allowed
+    transition
+    duration-200
+    shadow-md
+    hover:shadow-lg
+  `}
+>
+  Clear All
+</button>
+
+
           </div>
         </footer>
       </div>
