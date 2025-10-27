@@ -73,3 +73,22 @@ export default defineConfig([
   },
 ])
 ```
+
+
+# Professional Interactive To-Do List with Drag-and-Drop Functionality
+
+## Project Overview
+
+This is a fully interactive **To-Do List web application** built using **React**, **TypeScript**, and **Tailwind CSS**. Users can add, delete, and reorder tasks dynamically with **drag-and-drop functionality**. The project demonstrates React state management, DOM manipulation, and modern UI/UX best practices.
+
+---
+
+## Features
+
+- **Add Tasks**: Users can add new tasks via an input field. Blank tasks are not allowed.
+- **Display Tasks**: Tasks are displayed in a vertical list with clear separation.
+- **Delete Tasks**: Remove any task using a delete button.
+- **Reorder Tasks (Drag & Drop)**: Tasks can be reordered using drag-and-drop without duplicates or empty slots.
+- **Persist Tasks**: Tasks are saved in `localStorage` and persist across page reloads.
+- **Responsive UI**: The interface is clean, modern, and mobile-friendly.
+- **Smooth Animations**: Hover effects and drag animations for better user experience.
