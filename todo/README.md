@@ -89,3 +89,5 @@ when the user click on light mode ![
 
 and when the user click on dark mode 
 get this out put ![alt text](<Screenshot 2025-10-27 222327.png>)
+
+We can add data and do drag from top to down ![alt text](<Screenshot 2025-10-27 222542.png>)
