@@ -61,8 +61,15 @@ export default function App() {
     <div className="min-h-screen flex items-center justify-center p-6">
       <div className="w-full max-w-2xl">
         <header className="mb-6">
-          <h1 className="text-3xl font-semibold text-gray-800">To-Do List</h1>
-          <p className="text-sm text-gray-500 mt-1">React + TypeScript + Tailwind — drag to reorder</p>
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 drop-shadow-sm">
+            To-Do List
+            </h1>
+
+        <p className="text-sm md:text-base text-gray-500 mt-2 leading-relaxed">
+             Manage your tasks easily — drag & drop to reorder
+        </p>
+
+
         </header>
 
         {/* input */}
