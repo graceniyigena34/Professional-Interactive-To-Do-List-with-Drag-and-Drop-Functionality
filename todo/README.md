@@ -79,3 +79,13 @@ Add new features
 Improve UI/UX
 
 Fix bugs
+
+screen shoot Image 
+
+
+when the user click on light mode ![
+  
+](<Screenshot 2025-10-27 222313.png>)
+
+and when the user click on dark mode 
+get this out put ![alt text](<Screenshot 2025-10-27 222327.png>)
